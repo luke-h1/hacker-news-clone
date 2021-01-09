@@ -16,15 +16,12 @@ const Footer = styled.footer`
   }
 `
 
-
-
 export default function Home({stories, page}) {
  
   if (stories.length === 0 || stories.length === undefined){
     return <Error statusCode={503} /> 
   }
- 
- 
+  
   return (
     <>
       <Layout title="Hacker news clone" description="hacker news clone made with Next JS">
@@ -46,7 +43,6 @@ Home.getInitialProps = async ({ req, res, query }) => {
     page = Number(query.page) || 1
     const res = await fetch(`https://node-hnapi.herokuapp.com/news?page=${page}`)
     stories = await res.json()
-    console.log(stories)
   } catch (error) {
     console.error(error)
     stories = []

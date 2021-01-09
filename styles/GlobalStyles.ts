@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import { normalize } from 'polished'
 import { PrimaryFont } from './Fonts'
-import Roboto from '../fonts/Roboto-Regular.ttf'
+import Roboto from '../fonts/Roboto-Regular.ttf';
 
 export const GlobalStyle = createGlobalStyle`
     ${normalize()}

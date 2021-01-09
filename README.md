@@ -58,7 +58,7 @@ npm run start
 
 ### lint
 
-Lint the code according to the Airbnb style guide 
+check for linting issues (Airbnb style guide)
 
 ```shell
 npm run lint
@@ -66,7 +66,7 @@ npm run lint
 
 ### lint:fix 
 
-fix any linting issue found according to the Airbnb style guide 
+fix any linting issues found (Airbnb style guide) 
 
 ```shell
 npm run lint:fix

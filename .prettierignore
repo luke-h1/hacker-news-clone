@@ -2,3 +2,4 @@
 build
 lib
 next.config.js
+next-env.d.ts

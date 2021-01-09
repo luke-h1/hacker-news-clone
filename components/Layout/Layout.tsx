@@ -8,6 +8,9 @@ const Layout = ({ children, title, description, backButton }) => {
     <>
       <GlobalStyle />
       <NextSeo title={title} description={description} />
+      <Navbar /> 
+      {children}
+      <Footer /> 
     </>
   )
 }

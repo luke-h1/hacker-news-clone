@@ -19,12 +19,13 @@ const Footer = styled.footer`
 
 
 
-export default function Home(props) {
-  const [error, setError] = useState(false);
-  const { stories, page } = props;
-  // if (stories.length === 0 || stories.length === undefined){
-  //   return <Error statusCode={503} /> 
-  // }
+export default function Home({stories, page}) {
+ 
+  if (stories.length === 0 || stories.length === undefined){
+    return <Error statusCode={503} /> 
+  }
+ 
+ 
   return (
     <>
       <Layout title="Hacker news clone" description="hacker news clone made with Next JS">
@@ -51,5 +52,5 @@ Home.getInitialProps = async ({ req, res, query }) => {
     console.error(error)
     stories = []
   }
-  return { props: stories, page }
+  return {stories, page }
 }

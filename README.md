@@ -22,7 +22,7 @@ You can read more about these technologies here:
 
 
 ### Story page
-![](./static/images/StoryPage.png)
+![Story page of hacker news clone](./static/images/StoryPage.png)
 
 
 <br />

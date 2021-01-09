@@ -30,6 +30,7 @@ You can read more about these technologies here:
 <br />
 
 ## Available NPM Commands
+<br />
 
 ### dev
 

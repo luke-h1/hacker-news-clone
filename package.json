@@ -6,8 +6,8 @@
     "dev": "NODE_ENV=development next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint \"src/**/*.{js, jsx,ts,tsx}\" --quiet",
-    "lint:fix": "eslint \"src/**/*.{js, jsx,ts,tsx}\" --quiet --fix"
+    "lint": "eslint \"/**/*.{js, jsx,ts,tsx}\" --quiet",
+    "lint:fix": "eslint \"*.{js, jsx,ts,tsx}\" --quiet --fix"
   },
   "dependencies": {
     "@types/react": "^17.0.0",

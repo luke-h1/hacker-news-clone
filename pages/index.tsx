@@ -2,9 +2,10 @@ import Head from 'next/head'
 import Layout from '../components/Layout/Layout'
 import Link from 'next/link'
 import styled from 'styled-components'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import React, { useEffect } from 'react'
 import { StoryList } from '../components/StoryList/StoryListEl'
+import fetch from 'isomorphic-fetch'
 
 const Footer = styled.footer`
   padding: 1rem;
@@ -15,7 +16,26 @@ const Footer = styled.footer`
   }
 `
 
-const getStaticProps: GetStaticProps = async ({ req, res, query }) => {
+
+
+export default function Home(props) {
+  const { stories, page } = props;
+  return (
+    <>
+      <Layout title="Hacker news clone" description="hacker news clone made with Next JS">
+        <Footer>
+          <StoryList stories={stories} />
+
+          <Link href={`/?page=${page + 1}`}>
+            <a>Next Page ({page + 1})</a>
+          </Link>
+        </Footer>
+      </Layout>
+    </>
+  )
+}
+
+Home.getInitialProps = async ({ req, res, query }) => {
   let stories
   let page
   try {
@@ -27,25 +47,5 @@ const getStaticProps: GetStaticProps = async ({ req, res, query }) => {
     console.error(error)
     stories = []
   }
-  return {
-    props: {
-      stories,
-      page,
-    },
-  }
-}
-
-export default function Home({ stories, page }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return (
-    <>
-      <Layout title="Hacker news clone" description="hacker news clone made with Next JS">
-        <Footer>
-          <Link href={`/?page=${page + 1}`}>
-            <a>Next Page ({page + 1})</a>
-          </Link>
-          <StoryList stories={stories} />
-        </Footer>
-      </Layout>
-    </>
-  )
+  return { props: stories, page }
 }

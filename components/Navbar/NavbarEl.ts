@@ -16,5 +16,8 @@ export const BackBtn = styled.span`
     font-size: 0.9rem;
     padding-right: 1rem;
     cursor: pointer;
+`
+
+export const NavTitle = styled.span`
     font-weight: bold;
 `

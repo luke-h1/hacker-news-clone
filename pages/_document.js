@@ -12,7 +12,7 @@ class MyDocument extends Document {
         <Head>
         <link rel="manifest" href="/manifest.json" />
           <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
-          <link rel="apple-touch-icon" type="image/png" sizes="512x512" href="/public/assets/icons/icon-512.png" />
+          <link rel="apple-touch-icon" type="image/png" sizes="512x512" href="/icon-512.png" />
           <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
           <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="/icon-192.png" />
         </Head>

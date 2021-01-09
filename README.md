@@ -17,7 +17,7 @@ You can read more about these technologies here:
 
 
 ### Home page
-![Home Page of hacker news clone](./static/images/HomePage.png)
+![Home Page of hacker news clone](./static/images/homePage.png)
 <br />
 <br />
 

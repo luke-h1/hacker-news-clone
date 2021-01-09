@@ -9,10 +9,9 @@ You can read more about these technologies here:
 - [NextJS](https://nextjs.org/)
 - [Styled Components](https://www.styled-components.com/)
   <br />
-
+  <br />
 
 ## Screenshots: 
-<br />
 <br />
 
 

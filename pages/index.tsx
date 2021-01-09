@@ -3,8 +3,9 @@ import Layout from '../components/Layout/Layout'
 import Link from 'next/link'
 import styled from 'styled-components'
 import { GetServerSideProps } from 'next'
-import React, { useEffect } from 'react'
-import { StoryList } from '../components/StoryList/StoryListEl'
+import Error from 'next/error';
+import React, { useEffect, useState } from 'react'
+import StoryList from '../components/StoryList/StoryList'
 import fetch from 'isomorphic-fetch'
 
 const Footer = styled.footer`
@@ -19,13 +20,16 @@ const Footer = styled.footer`
 
 
 export default function Home(props) {
+  const [error, setError] = useState(false);
   const { stories, page } = props;
+  // if (stories.length === 0 || stories.length === undefined){
+  //   return <Error statusCode={503} /> 
+  // }
   return (
     <>
       <Layout title="Hacker news clone" description="hacker news clone made with Next JS">
+      <StoryList stories={stories} /> 
         <Footer>
-          <StoryList stories={stories} />
-
           <Link href={`/?page=${page + 1}`}>
             <a>Next Page ({page + 1})</a>
           </Link>

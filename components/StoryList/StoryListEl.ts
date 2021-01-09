@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StoryList = styled.div`
+export const StoryListWrapper = styled.div`
     padding: 0 1em;
 `
 

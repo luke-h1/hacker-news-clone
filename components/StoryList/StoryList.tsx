@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
-import { StoryList, StoryWrapper, StoryTitle, StoryDetails } from './StoryListEl';
+import { StoryListWrapper, StoryWrapper, StoryTitle, StoryDetails } from './StoryListEl';
 
 
 const StoryList = ({ stories }) => (
-    <StoryList>
+    <StoryListWrapper>
         {stories.map((story) => (
             <StoryWrapper key={story.id}>
                 <StoryTitle>
@@ -18,6 +18,6 @@ const StoryList = ({ stories }) => (
                 </StoryDetails>
             </StoryWrapper>
         ))}
-    </StoryList>
+    </StoryListWrapper>
 )
 export default StoryList;

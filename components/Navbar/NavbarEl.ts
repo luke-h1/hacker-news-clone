@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const Nav = styled.nav`
  background: #f60;
+ width: 800px;
+ margin: 0 auto;
  padding: 1rem;     
  > * { 
      display: inline-block;

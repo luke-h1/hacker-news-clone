@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Layout from '../components/Layout/Layout'
 import Link from 'next/link'
 import styled from 'styled-components'
-import { GetServerSideProps } from 'next'
 import Error from 'next/error';
 import React, { useEffect, useState } from 'react'
 import StoryList from '../components/StoryList/StoryList'

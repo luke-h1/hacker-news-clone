@@ -26,6 +26,14 @@ const Title = styled.h1`
   font-size: 1.2rem;
   margin: 0;
   font-weight: 300;
+  margin-bottom: 0.5rem;
+  a { 
+    text-decoration: none;
+    color: #000;
+    &:hover { 
+      text-decoration: underline;
+    }
+  }
 `
 
 const Story = ({ story }) => {
@@ -34,7 +42,7 @@ const Story = ({ story }) => {
 		<Layout title={story.title} backButton={true}>
       <StoryMain>
         <Title>
-          <a href={story.url}>{story.title}</a>
+          <a target="_blank" rel="noreferrer noopener" href={story.url}>{story.title}</a>
         </Title>
         <StoryDetails>
           <strong>{story.points} points</strong>

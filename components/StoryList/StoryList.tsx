@@ -1,9 +1,13 @@
 import Link from 'next/link'
+import React from 'react';
 
-import { StoryListWrapper, StoryWrapper, StoryTitle, StoryDetails, ExternalLink } from './StoryListEl'
+import {
+  StoryListWrapper, StoryWrapper, StoryTitle, StoryDetails, ExternalLink,
+} from './StoryListEl'
 
 const StoryList = ({ stories }) => (
   <StoryListWrapper>
+    {console.log(stories)}
     {stories.map((story) => (
       <StoryWrapper key={story.id}>
         <StoryTitle>
@@ -14,7 +18,11 @@ const StoryList = ({ stories }) => (
         <StoryDetails>
           <span>{story.points || 0}</span>
           <Link href={`/story?id=${story.id}`}>
-            <a>{story.comments_count || 0} comments</a>
+            <a>
+              {story.comments_count || 0}
+              {' '}
+              comments
+            </a>
           </Link>
         </StoryDetails>
       </StoryWrapper>

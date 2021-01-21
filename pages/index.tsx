@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import Layout from '../components/Layout/Layout'
 import Link from 'next/link'
 import styled from 'styled-components'
 import Error from 'next/error';
 import React, { useEffect, useState } from 'react'
-import StoryList from '../components/StoryList/StoryList'
 import fetch from 'isomorphic-fetch'
+import StoryList from '../components/StoryList/StoryList'
+import Layout from '../components/Layout/Layout'
 
 const Footer = styled.footer`
   padding: 1rem;
@@ -16,19 +16,18 @@ const Footer = styled.footer`
   }
 `
 
-export default function Home({stories, page}) {
- 
-  if (stories.length === 0 || stories.length === undefined){
-    return <Error statusCode={503} /> 
-  }
-  
+export default function Home({ stories, page }) {
   return (
     <>
       <Layout title="Hacker news clone" description="hacker news clone made with Next JS">
-      <StoryList stories={stories} /> 
+        <StoryList stories={stories} />
         <Footer>
           <Link href={`/?page=${page + 1}`}>
-            <a>Next Page ({page + 1})</a>
+            <a>
+              Next Page (
+              {page + 1}
+              )
+            </a>
           </Link>
         </Footer>
       </Layout>
@@ -42,10 +41,11 @@ Home.getInitialProps = async ({ req, res, query }) => {
   try {
     page = Number(query.page) || 1
     const res = await fetch(`https://node-hnapi.herokuapp.com/news?page=${page}`)
-    stories = await res.json()
+    const i = await res.json()
+    stories = JSON.parse(i)
   } catch (error) {
     console.error(error)
     stories = []
   }
-  return {stories, page }
+  return { stories, page }
 }

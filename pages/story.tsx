@@ -1,9 +1,9 @@
 import React from 'react'
 import fetch from 'isomorphic-fetch'
 import Error from 'next/error'
+import styled from 'styled-components'
 import Layout from '../components/Layout/Layout'
 import CommentList from '../components/CommentList/CommentList'
-import styled from 'styled-components'
 
 const StoryMain = styled.div`
   padding: 1rem;
@@ -14,12 +14,12 @@ const StoryDetails = styled.div`
   padding-bottom: 1em;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 1em;
-	strong { 
-		margin-right: 1rem;
-	}
-	a { 
-		color: #f60;
-	}
+  strong {
+    margin-right: 1rem;
+  }
+  a {
+    color: #f60;
+  }
 `
 
 const Title = styled.h1`
@@ -27,10 +27,10 @@ const Title = styled.h1`
   margin: 0;
   font-weight: 300;
   margin-bottom: 0.5rem;
-  a { 
+  a {
     text-decoration: none;
     color: #000;
-    &:hover { 
+    &:hover {
       text-decoration: underline;
     }
   }
@@ -39,35 +39,39 @@ const Title = styled.h1`
 const Story = ({ story }) => {
   return (
     <>
-		<Layout title={story.title} backButton={true}>
-      <StoryMain>
-        <Title>
-          <a target="_blank" rel="noreferrer noopener" href={story.url}>{story.title}</a>
-        </Title>
-        <StoryDetails>
-          <strong>{story.points} points</strong>
-          <strong>{story.comments_count} comments</strong>
-          <strong>{story.time_ago}</strong>
-        </StoryDetails>
-        {story.comments.length > 0 ? <CommentList comments={story.comments} /> : <div>No comments for this story</div>}
-      </StoryMain>
-			</Layout>
+      <Layout title={story.title} backButton>
+        <StoryMain>
+          <Title>
+            <a target="_blank" rel="noreferrer noopener" href={story.url}>
+              {story.title}
+            </a>
+          </Title>
+          <StoryDetails>
+            <strong>{story.points} points</strong>
+            <strong>{story.comments_count} comments</strong>
+            <strong>{story.time_ago}</strong>
+          </StoryDetails>
+          {story.comments.length > 0 ? (
+            <CommentList comments={story.comments} />
+          ) : (
+            <div>No comments for this story</div>
+          )}
+        </StoryMain>
+      </Layout>
     </>
   )
 }
 export default Story
 
-
-Story.getInitialProps = async ({req, res, query}) => { 
-	let story;
-	try {
-		const storyId = query.id;
-		const res = await fetch(`https://node-hnapi.herokuapp.com/item/${storyId}`)
-		story = await res.json()
-	} catch (e) {
-		console.error(e);
-		story = [];
-		
-	}
-	return { story }; 
+Story.getInitialProps = async ({ req, res, query }) => {
+  let story
+  try {
+    const storyId = query.id
+    const res = await fetch(`https://node-hnapi.herokuapp.com/item/${storyId}`)
+    story = await res.json()
+  } catch (e) {
+    console.error(e)
+    story = []
+  }
+  return { story }
 }

@@ -29,6 +29,7 @@ export default function Home({ stories, page }) {
               )
             </a>
           </Link>
+          <h1 style={{ textAlign: 'center' }}>Down for maintenance </h1>
         </Footer>
       </Layout>
     </>

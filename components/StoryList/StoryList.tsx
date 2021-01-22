@@ -13,20 +13,26 @@ const StoryList = ({ stories }) => (
         <StoryTitle>
           {story.url ? (
             <ExternalLink target="_blank" rel="noreferrer noopener" href={story.url}>
-              {story.title}
+              {story.title ? story.title : null}
             </ExternalLink>
-          ) : <h1>{story.title}</h1>}
+          ) : (
+            <ExternalLink target="_blank" rel="noreferrer noopener" href={story.url}>
+              {story.url ? story.url : ''}
+            </ExternalLink>
+          )}
 
         </StoryTitle>
+
         <StoryDetails>
-          <span>{story.points || 'no points'}</span>
-          <Link href={`/story?id=${story.id}`}>
-            <a>
-              {story.num_comments || 0}
-            </a>
-          </Link>
+          <span>{story.points || '0'}</span>
+          {/* <Link href={`/story?id=${story.objectID}`}>
+          <a>
+            {`${story.num_comments}` || 0}
+          </a>
+        </Link> */}
         </StoryDetails>
       </StoryWrapper>
+
     ))}
     {/* {stories.map((story) => (
       <StoryWrapper key={story.id}>

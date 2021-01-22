@@ -8,7 +8,27 @@ import {
 const StoryList = ({ stories }) => (
   <StoryListWrapper>
     {console.log(stories)}
-    {stories.map((story) => (
+    {stories.hits.map((story) => (
+      <StoryWrapper key={story.author}>
+        <StoryTitle>
+          {story.url ? (
+            <ExternalLink target="_blank" rel="noreferrer noopener" href={story.url}>
+              {story.title}
+            </ExternalLink>
+          ) : <h1>{story.title}</h1>}
+
+        </StoryTitle>
+        <StoryDetails>
+          <span>{story.points || 'no points'}</span>
+          <Link href={`/story?id=${story.id}`}>
+            <a>
+              {story.num_comments || 0}
+            </a>
+          </Link>
+        </StoryDetails>
+      </StoryWrapper>
+    ))}
+    {/* {stories.map((story) => (
       <StoryWrapper key={story.id}>
         <StoryTitle>
           <ExternalLink target="_blank" rel="noreferrer noopener" href={story.url}>
@@ -26,7 +46,7 @@ const StoryList = ({ stories }) => (
           </Link>
         </StoryDetails>
       </StoryWrapper>
-    ))}
+    ))} */}
   </StoryListWrapper>
 )
 export default StoryList

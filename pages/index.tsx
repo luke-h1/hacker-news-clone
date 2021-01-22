@@ -41,9 +41,9 @@ Home.getInitialProps = async ({ req, res, query }) => {
   let page
   try {
     page = Number(query.page) || 1
-    const res = await fetch(`https://node-hnapi.herokuapp.com/news?page=${page}`)
-    const i = await res.json()
-    stories = JSON.parse(i)
+    const res = await fetch(`http://hn.algolia.com/api/v1/search?page=${page}`)
+    const data = await res.json()
+    stories = data
   } catch (error) {
     console.error(error)
     stories = []

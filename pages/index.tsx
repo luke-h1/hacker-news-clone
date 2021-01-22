@@ -22,13 +22,13 @@ export default function Home({ stories, page }) {
       <Layout title="Hacker news clone" description="hacker news clone made with Next JS">
         <StoryList stories={stories} />
         <Footer>
-          <Link href={`/?page=${page + 1}`}>
+          {/* <Link href={`/?page=${page + 1}`}>
             <a>
               Next Page (
               {page + 1}
               )
             </a>
-          </Link>
+          </Link> */}
         </Footer>
       </Layout>
     </>
